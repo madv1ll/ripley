@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { HistorialComponent } from './components/historial/historial.component';
 
 const routes: Routes = [
   { 
-    //path: 'heroes', component: HeroesComponent 
+    path: 'historial', component: HistorialComponent 
   }
 ];
 
