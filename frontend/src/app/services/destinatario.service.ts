@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { Destinatario } from "../models/destinatario";
 import { NgForm } from '@angular/forms';
+import { Transferencia } from '../models/transferencia';
 
 @Injectable({
   providedIn: 'root'

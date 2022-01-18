@@ -1,5 +1,7 @@
 const controlador = {}
 const Destinatario = require('../models/destinatario')
+const Transferencia = require('../models/transferencia')
+
 //Usuario
 controlador.getUsuario = (req, res) => {}
 controlador.createUsuario = (req, res) => {}
@@ -23,11 +25,15 @@ controlador.createDestinatario = async (req, res) => {
 controlador.editDestinatario = (req, res) => {}
 controlador.deleteDestinatario = (req, res) => {}
 //Transferencia
-controlador.getTransferencia = (req, res) => {
-    res.send('Historial Transferencias')
+controlador.getTransferencia = async (req, res) => {
+    const transferencias = await Transferencia.find()
+    res.json(transferencias)
 }
-controlador.createTransferencia = (req, res) => {
-    res.send('Crear Transferencia')
+controlador.createTransferencia = async (req, res) => {
+    const newTransferencia = new Transferencia(req.body)
+    console.log(newTransferencia)
+    await newTransferencia.save()
+    res.send({message: 'Transferencia Realizada con Exito'})
 }
 //controlador.editTransferencia = (req, res) => {}
 //controlador.deleteTransferencia = (req, res) => {}

@@ -18,3 +18,20 @@ Content-Type: application/json
     "tipo_cuenta": "Cuenta Corriente",
     "numero_cuenta": "23232332"
 }
+
+
+//----------------------Transferencias
+
+###
+GET http://localhost:3000/persona/historial
+
+###
+POST http://localhost:3000/persona/nuevaTransferencia
+Content-Type: application/json
+
+{
+    "rut_destinatario": "12.233.323-4",
+    "monto": 32323
+}
+
+
