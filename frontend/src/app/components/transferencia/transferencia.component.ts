@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Transferencia } from 'src/app/models/transferencia';
+import { TransferenciaService } from 'src/app/services/transferencia.service';
 import { DestinatarioService } from "../../services/destinatario.service";
 
 @Component({
@@ -9,7 +11,7 @@ import { DestinatarioService } from "../../services/destinatario.service";
 })
 export class TransferenciaComponent implements OnInit {
 
-  constructor(public destinatarioService: DestinatarioService) { }
+  constructor(public destinatarioService: DestinatarioService, public transferenciaService: TransferenciaService) { }
   
   readonly = true;
   
@@ -25,15 +27,24 @@ export class TransferenciaComponent implements OnInit {
   }
   
   buscar: string = ""
-  destinatarioObj = {}
+  destinatarioObj = {rut:""}
   encontro = "";
+
   listarDestinatario(){
     this.destinatarioService.listarDestinatario(this.buscar).subscribe(
       res => {this.destinatarioService.datosDestinatario = res,
-              console.log("hola"),
-              this.readonly = false;
+              this.readonly = false
       },
       err => this.encontro = "no se encontraron destinatarios con el RUT ingresado"
     )
   }
+
+  transferencia:Transferencia = {monto: 0,rut_destinatario: this.destinatarioObj.rut}
+
+  transferir(){
+      this.transferenciaService.crearTransferencia(this.transferencia).subscribe(
+        res => console.log(res),
+        err => console.log(err)
+      )
+    }
 }
