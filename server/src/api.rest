@@ -1,0 +1,18 @@
+###
+GET http://localhost:3000/persona/nuevoDestinatario
+
+###
+GET http://localhost:3000/persona/contactos
+###
+POST http://localhost:3000/persona/nuevoDestinatario
+Content-Type: application/json
+
+{
+    "nombre": "Kevin Tobar",
+    "rut": "19.781.845-K",
+    "correo": "Keviningnatio.tm@gmail.com",
+    "telefono": "63639974",
+    "banco": "Banco Ripley",
+    "tipo_cuenta": "Cuenta Corriente",
+    "numero_cuenta": "23232332"
+}

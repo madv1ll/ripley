@@ -1,0 +1,48 @@
+<h1>Nuevo Destinatario</h1>
+<form #destinatarioForm="ngForm" (ngSubmit)="addDestinatario(destinatarioForm)">
+    <div class="row p-2">
+        <div class="col-4">
+            <label for="rut">RUT</label>
+            <input class="form-control" id="rut" type="text" name="rut" [(ngModel)]="destinatarioService.datosDestinatario.rut"/>
+        </div>
+        <div class="col-4">
+            <label for="rut">Nombre</label>
+            <input class="form-control" id="nombre" type="text" name="nombre" [(ngModel)]="destinatarioService.datosDestinatario.nombre"/>
+        </div>
+    </div>
+    <div class="row p-2">
+        <div class="col-4">
+            <label for="correo">Correo</label>
+            <input class="form-control" id="correo" type="email" name="correo" [(ngModel)]="destinatarioService.datosDestinatario.correo"/>
+        </div>
+        <div class="col-4">
+            <label for="rut">Telefono</label>
+            <input class="form-control" id="telefono" type="text" name="telefono" [(ngModel)]="destinatarioService.datosDestinatario.telefono"/>
+        </div>
+    </div>
+    <div class="row p-2">
+        <div class="col-4">
+            <label for="banco">Banco</label>
+            <select name="banco" id="banco" class="form-control" [(ngModel)]="destinatarioService.datosDestinatario.banco">
+                <option value="0">Seleccione</option>
+                <option value="1">Banco1</option>
+            </select>
+        </div>
+        <div class="col-4">
+            <label for="tipo_cuenta">Tipo de Cuenta</label>
+            <select name="tipo_cuenta" id="tipo_cuenta" class="form-control" [(ngModel)]="destinatarioService.datosDestinatario.tipo_cuenta">
+                <option value="0">Seleccione</option>
+                <option value="1">Tipo 1</option>
+            </select>
+        </div>
+    </div>
+    <div class="row p-2">
+        <div class="col-4">
+            <label for="banco">Nº de Cuenta</label>
+            <input class="form-control" id="numero_cuenta" type="text" name="numero_cuenta" [(ngModel)]="destinatarioService.datosDestinatario.numero_cuenta"/>
+        </div>
+    </div>
+    <div class="offset-3 p-5">
+        <button class="btn btn-primary btn-lg btn-crear">Crear</button>
+    </div>
+</form>
