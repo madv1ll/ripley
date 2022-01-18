@@ -8,13 +8,15 @@ import { DestinatariosComponent } from './components/destinatarios/destinatarios
 import { TransferenciaComponent } from './components/transferencia/transferencia.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HistorialComponent } from './components/historial/historial.component';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DestinatariosComponent,
     TransferenciaComponent,
-    HistorialComponent
+    HistorialComponent,
+    HomeComponent
   ],
   imports: [BrowserModule, HttpClientModule, FormsModule, AppRoutingModule],
   providers: [],
