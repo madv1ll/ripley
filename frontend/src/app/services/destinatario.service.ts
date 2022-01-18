@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { Destinatario } from "../models/destinatario";
+import { NgForm } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
@@ -23,12 +24,17 @@ export class DestinatarioService {
 
   constructor(private http: HttpClient) { 
   }
-
+  //se obtienen todos los destinatarios
   getDestinatario(){
     return this.http.get<Destinatario[]>(this.URL_API+'/contactos')
   }
-
+  //se crea un destinatario
   crearDestinatario(destinatario: Destinatario){
     return this.http.post(this.URL_API+'/nuevoDestinatario',destinatario)
   }
+  //listar un destinatario
+  listarDestinatario(rut: string){
+    return this.http.get<Destinatario>(this.URL_API+'/contactos/'+rut)
+  }
+
 }

@@ -6,8 +6,8 @@ const controlador = require('../controllers/controlador')
 
 router.post('/nuevoDestinatario', controlador.createDestinatario)
 router.get('/contactos', controlador.getDestinatario)
+router.get('/contactos/:rut', controlador.listarDestinatario)
 router.post('/nuevaTransferencia', controlador.createTransferencia)
-
 router.get('/historial', controlador.getTransferencia)
 
 module.exports = router
