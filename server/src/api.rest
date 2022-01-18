@@ -4,6 +4,8 @@ GET http://localhost:3000/persona/nuevoDestinatario
 ###
 GET http://localhost:3000/persona/contactos
 ###
+GET http://localhost:3000/persona/contactos/19.781.845-K
+###
 POST http://localhost:3000/persona/nuevoDestinatario
 Content-Type: application/json
 

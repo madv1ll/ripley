@@ -1,53 +1,56 @@
 <h1>Transferir</h1>
-<form #buscarForm="ngForm" (ngSubmit)="getDestinatario()">
+<form #buscarForm="ngForm" (ngSubmit)="listarDestinatario()">
     <div class="row">
         <div class="col-3">
             <label for="buscar">Buscar Destinatario</label>
-            <input class="form-control" id="buscar" type="text" name="buscar"/>
+            <input class="form-control" id="buscar" type="text" name="buscar" placeholder="Ingrese RUT" [(ngModel)]="buscar" />
+            <small id="emailHelp" class="form-text text-muted">Formato: 99.999.999-9</small>
         </div>
         <div class="col">
-            <button type="button" class="btn btn-primary btn-buscar">Buscar</button>
+            <button class="btn btn-primary btn-buscar rounded">Buscar</button>
         </div>
-    </div>
-    <strong>Detalle del destinatario</strong>
-    <div class="row" id="datos-destinatario">
-        <div class="col">
-            <p class="text-muted">Nombre:</p>
-        </div>
-        <div class="col-11">
-            <p class="text-secondary" *ngFor="let destinatario of destinatarioService.destinatario">{{ destinatario.nombre }}</p>
-        </div>
-    </div>
-    <div class="row" id="datos-destinatario">
-        <div class="col-md">
-            <p class="text-muted">Correo:</p>
-        </div>
-        <div class="col-11">
-            <p class="text-secondary" *ngFor="let destinatario of destinatarioService.destinatario">{{ destinatario.correo }}</p>
-        </div>
-    </div>
-    <div class="row" id="datos-destinatario">
-        <div class="col-md">
-            <p class="text-muted">Banco: </p>
-        </div>
-        <div class="col-11">
-            <p class="text-secondary" *ngFor="let destinatario of destinatarioService.destinatario">{{ destinatario.banco }}</p>
-        </div>
-    </div>
-    <div class="row" id="datos-destinatario">
-        <div class="col-md">
-            <p class="text-muted">Tipo de cuenta</p>
-        </div>
-        <div class="col-11">
-            <p class="text-secondary" *ngFor="let destinatario of destinatarioService.destinatario">{{ destinatario.tipo_cuenta }}</p>
-        </div>
-    </div>
-    <div class="form-group col-2">
-        <label for="monto">Monto</label>
-        <input class="form-control buscar" id="monto" type="text" name="monto" disabled/>
-    </div>
-    <br>
-    <div class="offset-md-2">
-        <button type="button" class="btn btn-primary btn-lg">Transferir</button>
     </div>
 </form>
+<br>
+<strong>Detalle del destinatario</strong>
+<p class="text-danger">{{encontro}}</p>
+<div class="row" id="datos-destinatario">
+    <div class="col">
+        <p class="text-muted">Nombre:</p>
+    </div>
+    <div class="col-11">
+        <p class="text-secondary">{{destinatarioService.datosDestinatario.nombre}} </p>
+    </div>
+</div>
+<div class="row" id="datos-destinatario">
+    <div class="col-md">
+        <p class="text-muted">Correo:</p>
+    </div>
+    <div class="col-11">
+        <p class="text-secondary">{{destinatarioService.datosDestinatario.correo}}</p>
+    </div>
+</div>
+<div class="row" id="datos-destinatario">
+    <div class="col-md">
+        <p class="text-muted">Banco: </p>
+    </div>
+    <div class="col-11">
+        <p class="text-secondary">{{destinatarioService.datosDestinatario.banco}}</p>
+    </div>
+</div>
+<div class="row" id="datos-destinatario">
+    <div class="col-md">
+        <p class="text-muted">Tipo de cuenta</p>
+    </div>
+    <div class="col-11">
+        <p class="text-secondary">{{destinatarioService.datosDestinatario.tipo_cuenta}}</p>
+    </div>
+</div>
+<div class="form-group col-2">
+    <label for="monto">Monto</label>
+    <input class="form-control buscar" id="monto" type="text" name="monto" [readonly]="readonly"/>
+</div>
+<br>
+<div class="offset-md-1">
+    <button type="button" class="btn btn-primary btn-lg rounded">Transferir</button>
+</div>

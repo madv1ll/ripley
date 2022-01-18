@@ -9,7 +9,7 @@
           <button type="button" class="btn btn-primary btn-lg">Nuevo Destinatario</button>
         </li>
         <li class="nav-item">
-          <button type="button" class="btn btn-primary btn-lg">Transferir</button>
+          <button type="button" class="btn btn-primary btn-lg" [routerLink]="['/transferencia']">Transferir</button>
         </li>
         <li class="nav-item">
           <button type="button" class="btn btn-primary btn-lg" routerLink="">Historial</button>
@@ -19,5 +19,5 @@
   </div>
 </nav>
 <div class="container p-4">
-  <app-destinatarios></app-destinatarios>
+  <router-outlet></router-outlet>
 </div>
