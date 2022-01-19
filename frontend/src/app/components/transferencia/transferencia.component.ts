@@ -29,7 +29,7 @@ export class TransferenciaComponent implements OnInit {
   buscar: string = ""
   destinatarioObj = {rut:""}
   encontro = "";
-
+  monto: number = 0;
   listarDestinatario(){
     this.destinatarioService.listarDestinatario(this.buscar).subscribe(
       res => {this.destinatarioService.datosDestinatario = res,
@@ -39,12 +39,9 @@ export class TransferenciaComponent implements OnInit {
     )
   }
 
-  transferencia:Transferencia = {monto: 0,rut_destinatario: this.destinatarioObj.rut}
 
   transferir(){
-      this.transferenciaService.crearTransferencia(this.transferencia).subscribe(
-        res => console.log(res),
-        err => console.log(err)
-      )
+    var transferencia:Transferencia = {rut_destinatario: this.buscar,monto: this.monto}
+      this.transferenciaService.crearTransferencia(transferencia).subscribe()
     }
 }
