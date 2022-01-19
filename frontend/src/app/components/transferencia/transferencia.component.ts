@@ -16,7 +16,6 @@ export class TransferenciaComponent implements OnInit {
   readonly = true;
   
   ngOnInit(): void {
-    
   }
 
   getDestinatario(){
@@ -38,7 +37,6 @@ export class TransferenciaComponent implements OnInit {
       err => this.encontro = "no se encontraron destinatarios con el RUT ingresado"
     )
   }
-
 
   transferir(){
     var transferencia:Transferencia = {rut_destinatario: this.buscar,monto: this.monto}

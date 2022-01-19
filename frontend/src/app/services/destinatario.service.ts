@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http'
 import { Destinatario } from "../models/destinatario";
 import { NgForm } from '@angular/forms';
 import { Transferencia } from '../models/transferencia';
+import { Banco } from '../models/banco';
 
 @Injectable({
   providedIn: 'root'
@@ -10,18 +11,18 @@ import { Transferencia } from '../models/transferencia';
 export class DestinatarioService {
 
   URL_API = 'http://localhost:3000/persona'
+  URL_BANCO = 'https://bast.dev/api/banks.php'
 
   datosDestinatario: Destinatario = {
-    nombre: "",
-    rut: "",
-    correo: "",
-    telefono: 0,
-    banco: "",
-    tipo_cuenta: "",
-    numero_cuenta: 0
-  }
-
+                                      nombre: "",
+                                      rut: "",
+                                      correo: "",
+                                      telefono: 0,
+                                      banco: "",
+                                      tipo_cuenta: "",
+                                      numero_cuenta: 0}
   destinatario: Destinatario[] = []
+  banco: Banco[] = [] 
 
   constructor(private http: HttpClient) { 
   }
@@ -37,5 +38,7 @@ export class DestinatarioService {
   listarDestinatario(rut: string){
     return this.http.get<Destinatario>(this.URL_API+'/contactos/'+rut)
   }
-
+  getBanco(){
+    return this.http.get(this.URL_BANCO)
+  }
 }
