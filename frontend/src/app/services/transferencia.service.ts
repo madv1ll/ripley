@@ -21,4 +21,8 @@ export class TransferenciaService {
   crearTransferencia(transferencia: Transferencia){
     return this.http.post(this.URL_API+'/nuevaTransferencia',transferencia)
   }
+
+  getTransferencia(){
+    return this.http.get<Transferencia[]>(this.URL_API+'/historial')
+  }
 }
