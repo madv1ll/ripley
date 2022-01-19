@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DestinatarioService } from 'src/app/services/destinatario.service';
+import { TransferenciaService } from 'src/app/services/transferencia.service';
 
 @Component({
   selector: 'app-historial',
@@ -8,14 +8,14 @@ import { DestinatarioService } from 'src/app/services/destinatario.service';
 })
 export class HistorialComponent implements OnInit {
 
-  constructor(public destinatarioService: DestinatarioService) { }
+  constructor(public transferenciaService: TransferenciaService) { }
 
   ngOnInit(): void {
-    this.getDestinatario()
+    this.getTransferencias()
   }
-  getDestinatario(){
-    this.destinatarioService.getDestinatario().subscribe(
-      res => this.destinatarioService.destinatario = res,
+  getTransferencias(){
+    this.transferenciaService.getTransferencia().subscribe(
+      res => this.transferenciaService.transferencia = res,
       err => console.log(err)
     )
   }
