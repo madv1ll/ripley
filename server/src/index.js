@@ -1,6 +1,8 @@
 const app = require('./app')
+require('dotenv').config({path: 'variables.env'})
 
-
-app.listen(app.get('port'), () => {
-    console.log('Server on port', app.get('port'))
+const host = process.env.HOST || '0.0.0.0'
+const port = process.env.PORT || 3000
+app.listen(port, host, () => {
+    console.log('Server on port', port)
 })
