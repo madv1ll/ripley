@@ -10,7 +10,7 @@ import { Banco } from '../models/banco';
 })
 export class DestinatarioService {
 
-  URL_API = 'http://localhost:3000/persona'
+  URL_API = '/persona'
   URL_BANCO = 'https://bast.dev/api/banks.php'
 
   datosDestinatario: Destinatario = {

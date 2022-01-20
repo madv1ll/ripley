@@ -7,7 +7,7 @@ import { Transferencia } from '../models/transferencia';
 })
 export class TransferenciaService {
 
-  URL_API = 'http://localhost:3000/persona'
+  URL_API = '/persona'
 
   datosTransferencia : Transferencia = {
     rut_destinatario: "",
