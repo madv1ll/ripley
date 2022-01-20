@@ -1,11 +1,8 @@
 require('./database')
 const express = require('express')
 const cors = require("cors")
-require('dotenv').config({path: 'variables.env'})
 
 const app = express()
-
-app.set('port', process.env.PORT || 3000)
 
 
 app.get('/', (req, res) => {
@@ -17,5 +14,7 @@ app.use(express.json())
 app.use(express.urlencoded({extended: false}))
 app.use("/persona", require('./routes/banco.routes'))
 
+//angular
+app.use(express.static('public/dist'))
 
 module.exports = app
