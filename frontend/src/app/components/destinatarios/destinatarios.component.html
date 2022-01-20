@@ -6,7 +6,7 @@
             <input class="form-control" id="rut" type="text" name="rut" [(ngModel)]="destinatarioService.datosDestinatario.rut"/>
         </div>
         <div class="col-4">
-            <label for="rut">Nombre</label>
+            <label for="rut">Nombre y Apellido</label>
             <input class="form-control" id="nombre" type="text" name="nombre" [(ngModel)]="destinatarioService.datosDestinatario.nombre"/>
         </div>
     </div>
@@ -24,15 +24,15 @@
         <div class="col-4">
             <label for="banco">Banco</label>
             <select name="banco" id="banco" class="form-control" [(ngModel)]="destinatarioService.datosDestinatario.banco">
-                <option value="0">Seleccione</option>
-                <option value="1">Banco1</option>
+                <option value="{{item.name}}"*ngFor="let item of destinatarioService.banco" >{{item.name}}</option>
             </select>
         </div>
         <div class="col-4">
             <label for="tipo_cuenta">Tipo de Cuenta</label>
-            <select name="tipo_cuenta" id="tipo_cuenta" class="form-control" [(ngModel)]="destinatarioService.datosDestinatario.tipo_cuenta">
-                <option value="0">Seleccione</option>
-                <option value="1">Tipo 1</option>
+            <select name="tipo_cuenta" id="tipo_cuenta" class="form-control" [ngModel]="destinatarioService.datosDestinatario.tipo_cuenta">
+                <option value="Cuenta de Ahorro">Cuenta de Ahorro</option>
+                <option value="Cuenta Vista">Cuenta Vista</option>
+                <option value="Cuenta Corriente">Cuenta Corriente</option>
             </select>
         </div>
     </div>

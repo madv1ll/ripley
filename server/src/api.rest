@@ -33,5 +33,6 @@ Content-Type: application/json
     "rut_destinatario": "12.233.323-4",
     "monto": 32323
 }
-
-
+//--------------------------api bancos
+###
+GET https://bast.dev/api/banks.php
