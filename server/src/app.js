@@ -6,7 +6,11 @@ const app = express()
 
 
 app.get('/', (req, res) => {
+<<<<<<< HEAD
     res.send('API Kevin Tobar Moore')
+=======
+    res.send('')
+>>>>>>> 4248459f89ca0b261c3e891506036f7a80a7c2e8
 })
 
 app.use(cors())
