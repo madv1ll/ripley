@@ -7,8 +7,6 @@ import { Transferencia } from '../models/transferencia';
 })
 export class TransferenciaService {
 
-  URL_API = '/persona'
-
   datosTransferencia : Transferencia = {
     rut_destinatario: "",
     monto: 0,
@@ -19,10 +17,17 @@ export class TransferenciaService {
   
   //-------------------Transferencia
   crearTransferencia(transferencia: Transferencia){
-    return this.http.post(this.URL_API+'/nuevaTransferencia',transferencia)
+    return this.http.post('https://sv-ripley.herokuapp.com/persona/nuevaTransferencia',transferencia)
   }
 
   getTransferencia(){
-    return this.http.get<Transferencia[]>(this.URL_API+'/historial')
+    return this.http.get<Transferencia[]>('https://sv-ripley.herokuapp.com/persona/historial')
+  }
+
+  limpiarTransferencia(){
+    this.datosTransferencia = {
+      rut_destinatario: "",
+      monto: 0,
+    }
   }
 }

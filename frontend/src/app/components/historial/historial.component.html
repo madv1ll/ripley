@@ -12,10 +12,10 @@
         </thead>
         <tbody *ngFor="let transferencia of transferenciaService.transferencia">
           <tr class="table-secondary">
-            <td>nombre</td>
+            <td>{{ destinatarioService.datosDestinatario.nombre }}</td>
             <td>{{ transferencia.rut_destinatario }}</td>
-            <td>banco</td>
-            <td>tipo_cuenta</td>
+            <td>{{ destinatarioService.datosDestinatario.banco }}</td>
+            <td>{{ destinatarioService.datosDestinatario.tipo_cuenta }}</td>
             <td>$ {{ transferencia.monto }}</td>
           </tr>
         </tbody>

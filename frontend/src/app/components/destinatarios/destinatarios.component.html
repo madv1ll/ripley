@@ -1,35 +1,38 @@
 <h1>Nuevo Destinatario</h1>
-<form #destinatarioForm="ngForm" (ngSubmit)="addDestinatario(destinatarioForm)">
+<form #destinatarioForm="ngForm" [formGroup]="form" (ngSubmit)="submit()">
     <div class="row p-2">
-        <div class="col-4">
+        <div class="col-xl-4 col-md-6">
             <label for="rut">RUT</label>
-            <input class="form-control" id="rut" type="text" name="rut" [(ngModel)]="destinatarioService.datosDestinatario.rut"/>
+            <input class="form-control" id="rut" type="text" name="rut" placeholder="Ingrese RUT" formControlName="rut" />
+            <small id="rutHelp" class="form-text text-muted">Formato: 99999999-K</small>
         </div>
-        <div class="col-4">
-            <label for="rut">Nombre y Apellido</label>
-            <input class="form-control" id="nombre" type="text" name="nombre" [(ngModel)]="destinatarioService.datosDestinatario.nombre"/>
+        <div class="col-xl-4 col-md-6">
+            <label for="rut" style="min-width: 10em;">Nombre y Apellido</label>
+            <input class="form-control" id="nombre" type="text" name="nombre" formControlName="nombre"/>
         </div>
     </div>
     <div class="row p-2">
-        <div class="col-4">
+        <div class="col-xl-4 col-md-6">
             <label for="correo">Correo</label>
-            <input class="form-control" id="correo" type="email" name="correo" [(ngModel)]="destinatarioService.datosDestinatario.correo"/>
+            <input class="form-control" id="correo" type="email" name="correo" formControlName="correo"/>
+            <small id="emailHelp" class="form-text text-muted">Formato: correo@correo.cl</small>
         </div>
-        <div class="col-4">
+        <div class="col-xl-4 col-md-6">
             <label for="rut">Telefono</label>
-            <input class="form-control" id="telefono" type="text" name="telefono" [(ngModel)]="destinatarioService.datosDestinatario.telefono"/>
+            <input class="form-control" id="telefono" type="text" name="telefono" onclick="if(this.value==0){this.value=''}" formControlName="telefono"/>
+            <small id="numeroHelp" class="form-text text-muted">Formato: 9 99999999</small>
         </div>
     </div>
     <div class="row p-2">
-        <div class="col-4">
+        <div class="col-xl-4 col-md-6">
             <label for="banco">Banco</label>
-            <select name="banco" id="banco" class="form-control" [(ngModel)]="destinatarioService.datosDestinatario.banco">
+            <select name="banco" id="banco" class="form-control"  formControlName="banco">
                 <option value="{{item.name}}"*ngFor="let item of destinatarioService.banco" >{{item.name}}</option>
             </select>
         </div>
-        <div class="col-4">
+        <div class="col-xl-4 col-md-6">
             <label for="tipo_cuenta">Tipo de Cuenta</label>
-            <select name="tipo_cuenta" id="tipo_cuenta" class="form-control" [ngModel]="destinatarioService.datosDestinatario.tipo_cuenta">
+            <select name="tipo_cuenta" id="tipo_cuenta" class="form-control" formControlName="tipo_cuenta">
                 <option value="Cuenta de Ahorro">Cuenta de Ahorro</option>
                 <option value="Cuenta Vista">Cuenta Vista</option>
                 <option value="Cuenta Corriente">Cuenta Corriente</option>
@@ -37,12 +40,12 @@
         </div>
     </div>
     <div class="row p-2">
-        <div class="col-4">
+        <div class="col-xl-4 col-md-6">
             <label for="banco">Nº de Cuenta</label>
-            <input class="form-control" id="numero_cuenta" type="text" name="numero_cuenta" [(ngModel)]="destinatarioService.datosDestinatario.numero_cuenta"/>
+            <input class="form-control" id="numero_cuenta" type="text" name="numero_cuenta" onclick="if(this.value==0){this.value=''}" formControlName="numero_cuenta"/>
         </div>
     </div>
-    <div class="offset-3 p-5">
-        <button class="btn btn-primary btn-lg btn-crear">Crear</button>
+    <div class="offset-4 mt-3">
+        <button class="btn btn-primary btn-xl rounded">Crear</button>
     </div>
 </form>

@@ -1,39 +1,35 @@
 <h1> Bienvenido!</h1>
-<h1>Banco Kevin Tobar Moore</h1>
-<div class="container-fluid primary">
-
-    que desea hacer hoy?
-    <div class="row">
-        <div class="col-sm-6">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Agregar Destinatario</h5>
-              <p class="card-text">Agrega un nuevo destinatario para realizar transferencias.</p>
-              <a href="#" [routerLink]="['/nuevo']" class="btn btn-primary">Ir a Agregar</a>
-            </div>
+¿Qué desea hacer hoy?
+<div class="container-fluid primary mt-2">
+  <div class="row">
+    <div class="col-sm-6 mt-1">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Agregar Destinatario</h5>
+          <p class="card-text">Agrega un nuevo destinatario para realizar transferencias.</p>
+          <a href="#" [routerLink]="['/nuevo']" class="btn btn-primary rounded">Ir a Agregar</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6 mt-1">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Transferir</h5>
+          <p class="card-text">Transfiere dinero a tus destinatarios.</p>
+          <a href="#" [routerLink]="['/transferencia']" class="btn btn-primary rounded">Ir a Transferir</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row mt-1">
+    <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Historial</h5>
+            <p class="card-text">Revisa el historial de transferencias realizadas.</p>
+            <a href="#" [routerLink]="['/historial']" class="btn btn-primary rounded">Ir al Historial</a>
           </div>
         </div>
-        <div class="col-sm-6">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Transferir</h5>
-              <p class="card-text">Transfiere dinero a tus destinatarios.</p>
-              <a href="#" [routerLink]="['/transferencia']" class="btn btn-primary">Ir a Transferir</a>
-            </div>
-          </div>
-        </div>
-    </div>
-    <br>
-    <div class="row">
-        <div class="col-sm-6">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Historial</h5>
-                <p class="card-text">Revisa el historial de transferencias realizadas.</p>
-                <a href="#" [routerLink]="['/historial']" class="btn btn-primary">Ir al Historial</a>
-              </div>
-            </div>
-          </div>
-    </div>
-      
+      </div>
+  </div> 
 </div>

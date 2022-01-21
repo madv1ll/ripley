@@ -1,19 +1,18 @@
 <h1>Transferir</h1>
-<form #buscarForm="ngForm" (ngSubmit)="listarDestinatario()">
+<form #buscarForm="ngForm" [formGroup]="formRut" (ngSubmit)="submit()">
     <div class="row">
-        <div class="col-3">
+        <div class="col-3" style="min-width: 13em;">
             <label for="buscar">Buscar Destinatario</label>
-            <input class="form-control" id="buscar" type="text" name="buscar" placeholder="Ingrese RUT" [(ngModel)]="buscar" />
-            <small id="emailHelp" class="form-text text-muted">Formato: 99.999.999-9</small>
+            <input class="form-control" id="buscar" type="text" name="buscar" placeholder="Ingrese RUT" formControlName="rut" />
+            <small id="emailHelp" class="form-text text-muted">Formato: 99999999-K</small>
         </div>
-        <div class="col">
-            <button class="btn btn-primary btn-buscar rounded">Buscar</button>
+        <div class="col-1 mt-4">
+            <button class="btn btn-primary rounded">Buscar</button>
         </div>
     </div>
+    <p class="text-danger">{{encontro}}</p>
 </form>
-<br>
 <strong>Detalle del destinatario</strong>
-<p class="text-danger">{{encontro}}</p>
 <div class="row" id="datos-destinatario">
     <div class="col">
         <p class="text-muted">Nombre:</p>
@@ -46,11 +45,13 @@
         <p class="text-secondary">{{destinatarioService.datosDestinatario.tipo_cuenta}}</p>
     </div>
 </div>
-<div class="form-group col-2">
-    <label for="monto">Monto</label>
-    <input class="form-control buscar" id="monto" type="text" name="monto" [readonly]="readonly" [(ngModel)]="monto"/>
-</div>
-<br>
-<div class="offset-md-1">
-    <button type="submit" class="btn btn-primary btn-lg rounded" id="transferir" (click)="transferir()">Transferir</button>
-</div>
+<form [formGroup]="formMonto" (ngSubmit)="submitMonto()">
+    <div class="form-group col-2" style="min-width: 13em;">
+        <label for="monto">Monto</label>
+        <input class="form-control buscar" id="monto" type="text" name="monto" formControlName="monto" onclick="if(this.value==0){this.value=''}" [readonly]="readonly"  />
+    </div>
+    <br>
+    <div class="offset-md-1">
+        <button class="btn btn-primary btn-lg rounded" id="transferir">Transferir</button>
+    </div>
+</form>
