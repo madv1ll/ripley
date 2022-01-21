@@ -11,7 +11,4 @@ router.get('/contactos/:rut', controlador.listarDestinatario)
 router.post('/nuevaTransferencia', controlador.createTransferencia)
 router.get('/historial', controlador.getTransferencia)
 
-router.get('/*',(req,res)=>{
-    res.sendFile(path.join(__dirname+'../../public/dist/index.html'))
-})
 module.exports = router
