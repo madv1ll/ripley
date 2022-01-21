@@ -6,7 +6,7 @@ const app = express()
 
 
 app.get('/', (req, res) => {
-    res.send('Pagina principal')
+    res.send('API Kevin Tobar Moore')
 })
 
 app.use(cors())
